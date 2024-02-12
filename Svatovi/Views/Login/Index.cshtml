@@ -1,0 +1,33 @@
+﻿@model  Svatovi.Areas.Identity.Data.SvatoviUser  
+@* @using Svatovi.Areas.Identity.Data *@
+ 
+
+
+ 
+ 
+<head>
+    <title>Prijava</title>
+</head>
+<body>
+
+    <h2>Prijava</h2>
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div style="color: red;">@ViewBag.ErrorMessage</div>
+    }
+
+    <form method="post" action="/Login">
+        <div>
+            <label for="name">Korisničko ime:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div>
+            <button type="submit">Prijavi se</button>
+        </div>
+    </form>
+
+</body>
+
+

@@ -7,6 +7,8 @@ namespace Svatovi.Areas.Identity.Data;
 
 public class SvatoviContext : DbContext
 {
+    internal readonly object Login;
+
     public SvatoviContext(DbContextOptions<SvatoviContext> options)
         : base(options)
     {

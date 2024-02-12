@@ -9,22 +9,22 @@ using Svatovi.Areas.Identity.Data;
 
 namespace Svatovi.Controllers
 {
-    public class SvatoviUsersController : Controller
+    public class DobroDosli : Controller
     {
         private readonly SvatoviContext _context;
 
-        public SvatoviUsersController(SvatoviContext context)
+        public DobroDosli(SvatoviContext context)
         {
             _context = context;
         }
 
-        // GET: SvatoviUsers
+        // GET: DobroDosli
         public async Task<IActionResult> Index()
         {
             return View(await _context.Users.ToListAsync());
         }
 
-        // GET: SvatoviUsers/Details/5
+        // GET: DobroDosli/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -42,7 +42,7 @@ namespace Svatovi.Controllers
             return View(svatoviUser);
         }
 
-        // GET: SvatoviUsers/Create
+        // GET: DobroDosli/Create
         public IActionResult Create()
         {
             return View();
