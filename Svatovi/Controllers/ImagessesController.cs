@@ -9,201 +9,53 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Svatovi.Areas.Identity.Data;
 using Svatovi.Models;
+using Svatovi.Repository;
 using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Svatovi.Controllers
 {
     public class ImagessesController : Controller
     {
-        private readonly SvatoviContext _context;
+        private readonly IImageRepository _imageRepository=null;
 
-        public readonly IWebHostEnvironment webHostEnviroment;
+        public readonly IWebHostEnvironment _webHostEnviroment;
 
-        public ImagessesController(SvatoviContext context, IWebHostEnvironment webHostEnvironment)
+        public ImagessesController(IImageRepository imageRepository, IWebHostEnvironment webHostEnvironment)
         {
-            _context = context;
-            webHostEnviroment = webHostEnvironment;
+            _imageRepository= imageRepository;
+            _webHostEnviroment = webHostEnvironment;
 
                 }
-
-        // GET: Imagesses
-        public async Task<IActionResult> Index()
+        [Route("all-guests")]
+        public async Task<ViewResult>GetAllImage()
         {
-            return View(await _context.Datas.ToListAsync());
+            var data= await _imageRepository.GetAllImages();
+
+            return View(data);
+        }
+        [Route("image-guest/{id:int:min(1)}")]
+        public async Task<ViewResult>GetImage(int id)
+        {
+            var data = await _imageRepository.GetImageById(id);
+
+            return View(data);
         }
 
-        // GET: Imagesses/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<ViewResult>AddNewimage(int ImageId = 0)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var imagess = await _context.Datas
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (imagess == null)
-            {
-                return NotFound();
-            }
-
-            return View(imagess);
+            var model = new ImagessModel();
+            ViewBag.ImageId = ImageId;
+            return View(model);
         }
 
-        // GET: Imagesses/Create
-        public IActionResult Create()
+        private async Task<string>UploadImage(string folderPath, IFormFile file)
         {
-            return View();
-        }
-
-        // POST: Imagesses/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create(Imagess images, IFormCollection multiple, IFormCollection multipleChart)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-
-        //        Uploadsimage(images.Image, images);
-
-
-
-
-
-        //        images.Image = new List<Imagess>();
-        //        //books.Charts = new List<Charts>();
-
-        //        UploadMultipleImages(multiple.Files, images);
-
-
-        //        //UploadMultipleImagesCharts(multipleChart.Files, images);
-
-
-        //        _context.Add(images);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(images);
-        //}
-
-        //void Uploadsimage(IFormFile singleImage, Imagess images)
-        //{
-        //    if (images.Imagefile != null)
-        //    {
-        //        string uploadsFolders = Path.Combine(_webHostEnvironment.WebRootPath, "Images/Cover");
-        //        string uniqeFileName = Guid.NewGuid().ToString() + Path.GetExtension(images.Imagefile.Name) + ".png"; ;
-        //        string filePath = Path.Combine(uploadsFolders, uniqeFileName);
-        //        using (var FileStream = new FileStream(filePath, FileMode.Create))
-        //        {
-        //            images.Imagefile.CopyTo(FileStream);
-        //        }
-        //        images.Coment = uniqeFileName;
-        //    }
-        //}
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("Id,Image,Coment")] Imagess imagess)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Add(imagess);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(imagess);
-        //}
-
-        // GET: Imagesses/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var imagess = await _context.Datas.FindAsync(id);
-            if (imagess == null)
-            {
-                return NotFound();
-            }
-            return View(imagess);
-        }
-
-        // POST: Imagesses/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Image,Coment")] ImagessModel imagess)
-        {
-            if (id != imagess.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(imagess);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ImagessExists(imagess.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(imagess);
-        }
-
-        // GET: Imagesses/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var imagess = await _context.Datas
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (imagess == null)
-            {
-                return NotFound();
-            }
-
-            return View(imagess);
-        }
-
-        // POST: Imagesses/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var imagess = await _context.Datas.FindAsync(id);
-            if (imagess != null)
-            {
-                _context.Datas.Remove(imagess);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool ImagessExists(int id)
-        {
-            return _context.Datas.Any(e => e.Id == id);
+            folderPath += Guid.NewGuid().ToString() + "_" + file.FileName;
+            string serverFolder= Path.Combine(_webHostEnviroment.WebRootPath, folderPath);
+            await file.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+            return "/" + folderPath;
         }
     }
+
+   
 }
