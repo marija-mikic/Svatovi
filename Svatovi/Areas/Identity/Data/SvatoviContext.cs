@@ -19,5 +19,7 @@ public class SvatoviContext : DbContext
         base.OnModelCreating(builder);
     }
     public DbSet<SvatoviUser> Users { get; set; }
-    public DbSet<Imagess> Datas { get; set; }
+    public DbSet<ImagessModel> Datas { get; set; }
+
+    public DbSet<GalleryModel> Gallerys { get; set; }
 }

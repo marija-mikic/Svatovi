@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Svatovi.Areas.Identity.Data;
 using Svatovi.Models;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Svatovi.Controllers
 {
@@ -14,10 +17,14 @@ namespace Svatovi.Controllers
     {
         private readonly SvatoviContext _context;
 
-        public ImagessesController(SvatoviContext context)
+        public readonly IWebHostEnvironment webHostEnviroment;
+
+        public ImagessesController(SvatoviContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
-        }
+            webHostEnviroment = webHostEnvironment;
+
+                }
 
         // GET: Imagesses
         public async Task<IActionResult> Index()
@@ -52,18 +59,63 @@ namespace Svatovi.Controllers
         // POST: Imagesses/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Image,Coment")] Imagess imagess)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(imagess);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(imagess);
-        }
+        //public async Task<IActionResult> Create(Imagess images, IFormCollection multiple, IFormCollection multipleChart)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+
+        //        Uploadsimage(images.Image, images);
+
+
+
+
+
+        //        images.Image = new List<Imagess>();
+        //        //books.Charts = new List<Charts>();
+
+        //        UploadMultipleImages(multiple.Files, images);
+
+
+        //        //UploadMultipleImagesCharts(multipleChart.Files, images);
+
+
+        //        _context.Add(images);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(images);
+        //}
+
+        //void Uploadsimage(IFormFile singleImage, Imagess images)
+        //{
+        //    if (images.Imagefile != null)
+        //    {
+        //        string uploadsFolders = Path.Combine(_webHostEnvironment.WebRootPath, "Images/Cover");
+        //        string uniqeFileName = Guid.NewGuid().ToString() + Path.GetExtension(images.Imagefile.Name) + ".png"; ;
+        //        string filePath = Path.Combine(uploadsFolders, uniqeFileName);
+        //        using (var FileStream = new FileStream(filePath, FileMode.Create))
+        //        {
+        //            images.Imagefile.CopyTo(FileStream);
+        //        }
+        //        images.Coment = uniqeFileName;
+        //    }
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create([Bind("Id,Image,Coment")] Imagess imagess)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Add(imagess);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(imagess);
+        //}
 
         // GET: Imagesses/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -86,7 +138,7 @@ namespace Svatovi.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Image,Coment")] Imagess imagess)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Image,Coment")] ImagessModel imagess)
         {
             if (id != imagess.Id)
             {

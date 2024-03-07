@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Svatovi.Models
 {
-    public class Imagess
+    public class ImagessModel
     {
 
         public int Id { get; set; }
@@ -12,7 +12,9 @@ namespace Svatovi.Models
         public string? Coment { get; set; }
 
         [NotMapped]
-        [DisplayName("Upload File")]
-        public IFormFile Imagefile { get; set; }
+        [DisplayName("Odaberi sliku")]
+        public IFormCollection Imagefile { get; set; }
+
+        public List <GalleryModel> Gallery { get; set; }
     }
 }
