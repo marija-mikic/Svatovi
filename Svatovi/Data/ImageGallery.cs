@@ -2,7 +2,7 @@
 
 namespace Svatovi.Data
 {
-    public class Gallery
+    public class ImageGallery
     {
         public int Id { get; set; }
         public int ImageId {  get; set; }
@@ -10,6 +10,6 @@ namespace Svatovi.Data
 
         public string URL { get; set; }
 
-        public Image Image { get; set; }
+        public Image Images { get; set; }
     }
 }

@@ -8,7 +8,7 @@
 
         public string Coment { get; set; }
 
-        public ICollection<Gallery> Gallery { get; set; }   
+        public ICollection<ImageGallery> imageGalleries { get; set; }   
 
 
 

@@ -8,13 +8,13 @@ namespace Svatovi.Models
     {
 
         public int Id { get; set; }
-        public string? Image { get; set; }
-        public string? Coment { get; set; }
+        public string Image { get; set; }
+        public string Coment { get; set; }
 
         [NotMapped]
         [DisplayName("Odaberi sliku")]
         public IFormCollection Imagefile { get; set; }
 
-        public List <GalleryModel> Gallery { get; set; }
+        public List <GalleryModel> Gallerys { get; set; }
     }
 }
