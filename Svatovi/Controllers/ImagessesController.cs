@@ -47,7 +47,7 @@ namespace Svatovi.Controllers
             ViewBag.ImageId = ImageId;
             return View(model);
         }
-
+        [HttpPost]
         private async Task<IActionResult> AddNewimage(ImagessModel imagemodel)
         {
 
