@@ -52,7 +52,7 @@ namespace Svatovi.Repository
 
         }
 
-        public async Task<ImagessModel> GetImageById(int id)
+        public async Task<ImagessModel?> GetImageById(int id)
         {
             return await _context.Datas.Where(x => x.Id == id)
                 .Select(image => new ImagessModel()
@@ -63,10 +63,10 @@ namespace Svatovi.Repository
 
                 Gallerys = image.Gallerys.Select(x => new GalleryModel()
                 {
-                    Id = x.Id,
-                    Name = x.Name,
-                    URL = x.URL
-                }).ToList(),
+                    Id =x.Id,
+                    Name =x.Name,
+                    URL =x.URL
+                }).ToList()
             }).FirstOrDefaultAsync();
         }
     }

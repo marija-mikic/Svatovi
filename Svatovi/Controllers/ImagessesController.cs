@@ -55,6 +55,8 @@ namespace Svatovi.Controllers
             await file.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
             return "/" + folderPath;
         }
+
+         
     }
 
    

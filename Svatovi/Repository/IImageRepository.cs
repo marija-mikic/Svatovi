@@ -8,7 +8,7 @@ namespace Svatovi.Repository
 
         Task<List<ImagessModel>> GetAllImages();
 
-        Task<ImagessModel>GetImageById(int id);
+        Task<ImagessModel?>GetImageById(int id);
 
     }
 }
