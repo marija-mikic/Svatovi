@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
@@ -40,43 +41,66 @@ namespace Svatovi.Controllers
 
             return View(data);
         }
-
-        public async Task<ViewResult>AddNewimage(int ImageId = 0)
+        //[Route("adingphoto")]
+        public async Task<ViewResult>AddNewImage(bool isSuccess = false, int ImageId = 0)
         {
             var model = new ImagessModel();
+            ViewBag.IsSuccess = isSuccess;
             ViewBag.ImageId = ImageId;
             return View(model);
         }
         [HttpPost]
-        private async Task<IActionResult> AddNewimage(ImagessModel imagemodel)
+        private async Task<IActionResult> AddNewImage(ImagessModel imagemodel)
         {
-
-            if (imagemodel.Gallerys! == null)
-            {
-                string folder = "image/gallery/";
-                imagemodel.Gallerys = new List<GalleryModel>();
-                foreach(var file in imagemodel.Gallerys) {
-                    var gallery = new GalleryModel()
+            
+                if (ModelState.IsValid)
+                
                     {
-                        Name = file.Name,
-                        URL = file.URL
-                    };
-                    imagemodel.Gallerys.Add(gallery);
+                    if (imagemodel.Imagefile != null)
+                    {
+                        string folder = "image/gallery/";
 
-                }
-            }
+                        imagemodel.GalleryModels = new List<GalleryModel>();
+
+                        foreach (var file in imagemodel.Imagefile)
+                        {
+                            var gallery = new GalleryModel()
+                            {
+                                Name = file.FileName,
+                                URL = await UploadImage(folder, file)
+                            };
+                            imagemodel.GalleryModels.Add(gallery);
+                        }
+                        int id = await _imageRepository.AddNewImage(imagemodel);
+
+                        if (id > 0)
+                        {
+
+                            return RedirectToAction(nameof(Index), new { isSuccess = true, imageId = id });
+                        }
+                    
+
+                     } 
+                 }
+             
             return View();
         }
 
-        private async Task<string>UploadImage(string folderPath, IFormFile file)
+
+
+        private async Task<string> UploadImage(string folderPath, IFormFile file)
         {
+
             folderPath += Guid.NewGuid().ToString() + "_" + file.FileName;
-            string serverFolder= Path.Combine(_webHostEnviroment.WebRootPath, folderPath);
+
+            string serverFolder = Path.Combine(_webHostEnviroment.WebRootPath, folderPath);
+
             await file.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+
             return "/" + folderPath;
         }
 
-         
+
     }
 
    

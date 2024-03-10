@@ -2,7 +2,7 @@
 using Svatovi.Areas.Identity.Data;
 using Svatovi.Data;
 using Svatovi.Models;
-using System.Drawing;
+using Image = Svatovi.Data.Image;
 
 namespace Svatovi.Repository
 {
@@ -19,27 +19,32 @@ namespace Svatovi.Repository
 
         public async Task<int> AddNewImage(ImagessModel imagess)
         {
-            var newimage = new ImagessModel()
+            var newImage = new Image()
             {
-                Image = imagess.Image,
                 Coment = imagess.Coment
+                //Images = imagess.Image
+
             };
 
-            newimage.Gallerys = new List<GalleryModel>();
+            newImage.imageGalleries = new List<ImageGallery>();
 
 
-            foreach (var file in imagess.Gallerys)
+            foreach (var file in imagess.GalleryModels)
             {
-                newimage.Gallerys.Add(new GalleryModel()
+                newImage.imageGalleries.Add(new ImageGallery()
                 {
                     Name = file.Name,
                     URL = file.URL,
                 });
             }
-            await _context.Datas.AddAsync(newimage);
+            await _context.Datas.AddAsync(newImage);
             await _context.SaveChangesAsync();
-            return newimage.Id;
+            return newImage.Id;
         }
+
+
+
+
 
         public async Task<List<ImagessModel>> GetAllImages()
         {
@@ -47,7 +52,7 @@ namespace Svatovi.Repository
             {
                 Id = i.Id,
                 Coment = i.Coment,
-                Image = i.Image
+                //Image = i.Images
             }).ToListAsync();
 
         }
@@ -58,10 +63,10 @@ namespace Svatovi.Repository
                 .Select(image => new ImagessModel()
             {
                 Id = image.Id,
-                Image = image.Image,
+                //Image = image.Images,
                 Coment = image.Coment,
 
-                Gallerys = image.Gallerys.Select(x => new GalleryModel()
+                GalleryModels = image.imageGalleries.Select(x => new GalleryModel()
                 {
                     Id =x.Id,
                     Name =x.Name,

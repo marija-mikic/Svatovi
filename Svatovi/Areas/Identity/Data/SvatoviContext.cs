@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Svatovi.Data;
 using Svatovi.Models;
 
 namespace Svatovi.Areas.Identity.Data;
@@ -19,7 +20,8 @@ public class SvatoviContext : DbContext
         base.OnModelCreating(builder);
     }
     public DbSet<SvatoviUser> Users { get; set; }
-    public DbSet<ImagessModel> Datas { get; set; }
+    public DbSet<Image> Datas { get; set; }
+    public DbSet<ImageGallery> Gallerys { get; set; }
 
-    public DbSet<GalleryModel> Gallerys { get; set; }
-}
+public DbSet<Svatovi.Models.ImagessModel> ImagessModel { get; set; } = default!;
+ }
