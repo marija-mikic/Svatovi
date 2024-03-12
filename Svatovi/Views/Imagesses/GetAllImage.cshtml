@@ -7,12 +7,23 @@
     <h3 class="display-4">All image</h3>
     <div class="row">
 
-        @foreach (var imagess in Model)
-        {
-            <div class="col-md-4">
-                <partial name="_bookThumbnail" model="@imagess" />
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+
+                @for (int i = 0; i <Model.  (); i++)
+                {
+                    <li data-target="#carouselExampleIndicators" data-slide-to="@i" class="@(i==0 ? "active" : "") "></li>
+                }
+            </ol>
+            <div class="carousel-inner">
+                @for (int i = 0; i < Model.Gallery.Count(); i++)
+                {
+                    <div class="@(i==0 ? "carousel-item active" : "carousel-item") ">
+                        <img class="d-block w-100" src="@GalleryModel." alt="@Model.Gallery[i].Name">
+                    </div>
+                }
+
             </div>
-        }
 
     </div>
 </div>

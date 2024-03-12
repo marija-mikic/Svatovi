@@ -23,5 +23,4 @@ public class SvatoviContext : DbContext
     public DbSet<Image> Datas { get; set; }
     public DbSet<ImageGallery> Gallerys { get; set; }
 
-public DbSet<Svatovi.Models.ImagessModel> ImagessModel { get; set; } = default!;
  }
