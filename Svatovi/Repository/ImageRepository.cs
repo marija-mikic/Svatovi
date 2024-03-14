@@ -52,7 +52,7 @@ namespace Svatovi.Repository
             {
                 Id = i.Id,
                 Coment = i.Coment,
-                //Image = i.Images
+             
             }).ToListAsync();
 
         }
