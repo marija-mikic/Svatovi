@@ -5,26 +5,13 @@
 
 }
 
-
-
-<h1>Index</h1>
-
+ 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
-        <tr>
-             
-            <th>
-                @Html.DisplayNameFor(model => model.GalleryModels)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Coment)
-              
-            </th>
-            <th></th>
-        </tr>
+         
     </thead>
     <tbody>
         @foreach (var item in Model)
@@ -34,24 +21,32 @@
                     @Html.DisplayFor(modelItem => item.Coment)
                 </td>
                 <td>
-                     <div class="gallery-images">
+                    <div class="gallery-images">
                         @if (item.GalleryModels != null)
                         {
                             @foreach (var image in item.GalleryModels)
                             {
-                                <img src="@image.URL" alt="@image.Name" style="width:50%; height:11em; border-radius:1rem;" />
-                                
+                                 @* <img src="@image.URL" alt="@image.Name" style="width:50%; height:11em; border-radius:1rem;" />  *@
+
+                                <div class="card" style="width: 18rem;">
+                                    <img src="@image.URL" class="card-img-top"  >
+                                    <div class="card-body">
+                                         
+                                        <p class="card-text"> @item.Coment  </p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
                             }
-                    
+
                         }
                         else
                         {
                             <p>no image</p>
                         }
                     </div>
-                 
+
                 </td>
-                                  
+
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
