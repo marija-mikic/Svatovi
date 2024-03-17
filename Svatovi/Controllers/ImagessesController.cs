@@ -31,6 +31,7 @@ namespace Svatovi.Controllers
         public async Task<ViewResult>GetAllImage()
         {
             var data= await _imageRepository.GetAllImages();
+            
 
             return View(data);
         }

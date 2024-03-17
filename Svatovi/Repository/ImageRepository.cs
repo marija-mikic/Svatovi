@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol;
 using Svatovi.Areas.Identity.Data;
 using Svatovi.Data;
 using Svatovi.Models;
+using System.Linq;
 using Image = Svatovi.Data.Image;
 
 namespace Svatovi.Repository
@@ -9,12 +11,12 @@ namespace Svatovi.Repository
     public class ImageRepository : IImageRepository
     {
         private readonly SvatoviContext _context = null;
-         
+
 
         public ImageRepository(SvatoviContext context)
         {
             _context = context;
-            
+
         }
 
         public async Task<int> AddNewImage(ImagessModel imagess)
@@ -22,7 +24,7 @@ namespace Svatovi.Repository
             var newImage = new Image()
             {
                 Coment = imagess.Coment
-                //Images = imagess.Image
+
 
             };
 
@@ -52,10 +54,16 @@ namespace Svatovi.Repository
             {
                 Id = i.Id,
                 Coment = i.Coment,
-             
+                GalleryModels = i.imageGalleries.Select(g => new GalleryModel()
+                { Name = g.Name,
+                    URL = g.URL, }).ToList()
+
             }).ToListAsync();
 
-        }
+        
+
+    }
+    
 
         public async Task<ImagessModel?> GetImageById(int id)
         {

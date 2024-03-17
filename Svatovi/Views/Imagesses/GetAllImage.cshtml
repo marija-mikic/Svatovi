@@ -1,52 +1,63 @@
-﻿@{
-    ViewData["Title"] = "GetAllImage";
+﻿@model IEnumerable<ImagessModel>
+
+@{
+    ViewData["Title"] = "Index";
+
 }
-@model IEnumerable< ImagessModel >
 
 
 
-<<div class="container">
+<h1>Index</h1>
 
-    <h3 class="display-4">Image details</h3>
-    
-    <div class="row">
-        @foreach (var image in Model){
-            @* <div class="col-md-6">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-
-                        @for (int i = 0; i < image.GalleryModels.Count(); i++)
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+             
+            <th>
+                @Html.DisplayNameFor(model => model.GalleryModels)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Coment)
+              
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Coment)
+                </td>
+                <td>
+                     <div class="gallery-images">
+                        @if (item.GalleryModels != null)
                         {
-                            <li data-target="#carouselExampleIndicators" data-slide-to="@i" class="@(i==0 ? "active" : "") "></li>
+                            @foreach (var image in item.GalleryModels)
+                            {
+                                <img src="@image.URL" alt="@image.Name" style="width:50%; height:11em; border-radius:1rem;" />
+                                
+                            }
+                    
                         }
-                    </ol>
-                    <div class="carousel-inner">
-                        @for (int i = 0; i < image.GalleryModels.Count(); i++)
+                        else
                         {
-                            <div class="@(i==0 ? "carousel-item active" : "carousel-item") ">
-                                <img class="d-block w-100" src="@image.GalleryModels[i].URL">
-                            </div>
+                            <p>no image</p>
                         }
-
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                   
-                </div>
-            </div> *@
-            <div class="card" style="width: 18rem;">
-                <img src="@image.GalleryModels[i].URL" class="card-img-top"  >
-                <div class="card-body">
-                    <p class="card-text">@image.Coment</p>
-                </div>
-            </div>
+                 
+                </td>
+                                  
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
         }
-
-    </div>
-</div>
+    </tbody>
+</table>
