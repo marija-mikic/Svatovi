@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Svatovi.Areas.Identity.Data;
+using Svatovi.Migrations;
 using Svatovi.Models;
 using Svatovi.Repository;
 using static System.Reflection.Metadata.BlobBuilder;
@@ -50,14 +51,14 @@ namespace Svatovi.Controllers
             ViewBag.ImageId = ImageId;
             return View(model);
         }
-         
 
-            [HttpPost]
+
+        [HttpPost]
             public async Task<IActionResult> AddNewImage(ImagessModel imagessModel)
-            {
+        {
 
-              if (imagessModel.Imagefile != null)
-             {
+            if (imagessModel.Imagefile != null)
+            {
                 string folder = "image/gallery/";
 
                 imagessModel.GalleryModels = new List<GalleryModel>();
@@ -70,26 +71,29 @@ namespace Svatovi.Controllers
                         URL = await UploadImage(folder, file)
                     };
                     imagessModel.GalleryModels.Add(gallery);
-                    int id = await _imageRepository.AddNewImage(imagessModel);
-                    if (id > 0)
-                    {
-                        return RedirectToAction(nameof(GetAllImage), new { isSuccess = true, bookId = id });
-                    }
+                    
 
+                }
+                int id = await _imageRepository.AddNewImage(imagessModel);
+                if (id > 0)
+                {
+                    return RedirectToAction(nameof(GetAllImage), new { isSuccess = true, bookId = id });
                 }
 
 
 
 
-
             }
-                        return View();
+            return View();
 
-            }
+        }
 
 
 
-            private async Task<string> UploadImage(string folderPath, IFormFile file)
+
+
+
+        private async Task<string> UploadImage(string folderPath, IFormFile file)
         {
 
             folderPath += Guid.NewGuid().ToString() + "_" + file.FileName;
