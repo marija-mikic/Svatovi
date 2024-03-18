@@ -5,35 +5,31 @@
 
 }
 
+
  
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-         
-    </thead>
+ 
+  <section>  
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Coment)
-                </td>
-                <td>
+             
+                 
                     <div class="gallery-images">
                         @if (item.GalleryModels != null)
                         {
                             @foreach (var image in item.GalleryModels)
                             {
-                                 @* <img src="@image.URL" alt="@image.Name" style="width:50%; height:11em; border-radius:1rem;" />  *@
+                                @* <img src="@image.URL" alt="@image.Name" style="width:50%; height:11em; border-radius:1rem;" />  *@
 
-                                <div class="card" style="width: 18rem;">
-                                    <img src="@image.URL" class="card-img-top"  >
+                    <div class="card" style="width:50%;  height: 50%;margin: 10px 0;">
+	
+	
+	
+                                    <img src="@image.URL" class="card-img-top">
                                     <div class="card-body">
-                                         
+
                                         <p class="card-text"> @item.Coment  </p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                         
                                     </div>
                                 </div>
                             }
@@ -44,15 +40,10 @@
                             <p>no image</p>
                         }
                     </div>
+ 
 
-                </td>
-
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+                 
+            
         }
     </tbody>
-</table>
+</section> 
