@@ -8,7 +8,7 @@
 
  
  
-  <section>  
+ <section>  
     <tbody>
         @foreach (var item in Model)
         {
@@ -17,33 +17,18 @@
                     <div class="gallery-images">
                         @if (item.GalleryModels != null)
                         {
-                            @foreach (var image in item.GalleryModels)
-                            {
-                                @* <img src="@image.URL" alt="@image.Name" style="width:50%; height:11em; border-radius:1rem;" />  *@
-
-                    <div class="card" style="width:50%;  height: 50%;margin: 10px 0;">
-	
-	
-	
-                                    <img src="@image.URL" class="card-img-top">
+                            <img class="d-block w-100" src="@item.GalleryModels[0].URL" alt="@item.GalleryModels[0].Name">
+                        }
+                                   
                                     <div class="card-body">
 
                                         <p class="card-text"> @item.Coment  </p>
                                          
-                                    </div>
-                                </div>
-                            }
-
-                        }
-                        else
-                        {
-                            <p>no image</p>
-                        }
+                                    </div>                             
+                                              
                     </div>
- 
-
-                 
-            
+                           
         }
     </tbody>
-</section> 
+</section>    
+

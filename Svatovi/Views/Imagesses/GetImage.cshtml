@@ -7,7 +7,10 @@
     
     <div class="row">
         <div class="col-md-6">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            @for (int i = 0; i < Model.GalleryModels.Count(); i++){
+                <img class="d-block w-100" src="@Model.GalleryModels[i].URL" alt="@Model.GalleryModels[i].Name">
+            }
+            @* <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
 
                     @for (int i = 0; i < Model.GalleryModels.Count(); i++)
@@ -32,7 +35,7 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
-            </div>
+            </div> *@
         </div>
         <div class="col-md-6">
             <div class="row">

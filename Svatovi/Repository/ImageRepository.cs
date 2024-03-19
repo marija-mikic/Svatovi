@@ -56,7 +56,7 @@ namespace Svatovi.Repository
                 Coment = i.Coment,
                 GalleryModels = i.imageGalleries.Select(g => new GalleryModel()
                 { Name = g.Name,
-                    URL = g.URL, }).ToList()
+                  URL = g.URL, }).ToList()
 
             }).ToListAsync();
 
