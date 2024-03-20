@@ -8,27 +8,22 @@
 
  
  
- <section>  
-    <tbody>
+ <figure>
+   
         @foreach (var item in Model)
-        {
-             
-                 
-                    <div class="gallery-images">
-                        @if (item.GalleryModels != null)
+        {        
+              
+          if (item.GalleryModels != null)
                         {
-                            <img class="d-block w-100" src="@item.GalleryModels[0].URL" alt="@item.GalleryModels[0].Name">
+                            <img src="@item.GalleryModels[0].URL" alt="@item.GalleryModels[0].Name">
+                <p class="card-text"> @item.Coment  </p>
                         }
                                    
-                                    <div class="card-body">
-
-                                        <p class="card-text"> @item.Coment  </p>
-                                         
-                                    </div>                             
+                                                    
                                               
-                    </div>
+                  
                            
         }
-    </tbody>
-</section>    
+    
+</figure>
 

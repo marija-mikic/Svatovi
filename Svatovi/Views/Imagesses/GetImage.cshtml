@@ -2,14 +2,19 @@
     ViewData["Title"] = "Image detail ";
 }
 @model ImagessModel
-
-<div class="container">
+<style>
+    h1{
+        font-family:'Lucida Calligraphy';
+    }
+</style>
+ 
     
-    <div class="row">
-        <div class="col-md-6">
+   
+        <figure>
             @for (int i = 0; i < Model.GalleryModels.Count(); i++){
-                <img class="d-block w-100" src="@Model.GalleryModels[i].URL" alt="@Model.GalleryModels[i].Name">
+                <img src="@Model.GalleryModels[i].URL" alt="@Model.GalleryModels[i].Name">
             }
+    <h1>@Model.Coment</h1>
             @* <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
 
@@ -36,21 +41,20 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div> *@
-        </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>@Model.Coment</h1>
-                </div>
-            </div>
-
+       
+         </div>
+         
+                    
+                 
+        </figure>
              
              
 
              
 
-            <hr />
+        
 
              
-        </div>
-    </div>
+      
+   
+     
