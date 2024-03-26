@@ -1,30 +1,60 @@
-html {
-  font-size: 14px;
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+body{
+    background-image:url(../image/frame/POZADINA.jpg);
+}
+.card-container {
+    background-image: url(/image/frame/POZADINA.jpg);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    align-items: center;
+}
+.card {
+    width: 335px;
+/*    background-image: url(/image/frame/240_F_430707962_fcrgGGyNClzu4OXKZIc1A3bMp3107ygd.jpg);
+*/    /*background-color:aqua;*/
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.2)
+}
+    .card img {
+        /*background-image: url(/image/frame/POZADINA.jpg);*/
+        /*position: relative;*/
+        /*display: block;*/
+        width: 100%;
+        height: auto;
+        padding: 6%;
+        box-shadow: inset 0px .3em .1em rgba(0,0,0,.2);
+        border-radius: 8px;
+         
+    }
+    .card image {
+        width: 30%;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 20px
+    }
+    .card free-image{
+        flex-grow:10;
+    }
+.body {
+    margin-bottom: 60px;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}
 body {
     font-family: 'Oswald', sans-serif;
-    background-image: url("../image/frame/240_F_430707962_fcrgGGyNClzu4OXKZIc1A3bMp3107ygd.jpg");
-    background-size: inherit;
+    */ background-image: url("../image/frame/240_F_430707962_fcrgGGyNClzu4OXKZIc1A3bMp3107ygd.jpg");
+    background-attachment: fixed;
+    background-size: cover;
     section
+
 {
     width: 90%;
     max-width: 20px;
@@ -35,9 +65,6 @@ body {
     align-items: center;
     height: 100vh;
 }
-
-}
-}
 figure {
     position: absolute;
     display: block;
@@ -46,45 +73,102 @@ figure {
     top: 25%;
     left: 50%;
     margin: 0 0 0 -200px;
+
+}
+    
+.img {
+        background: #fff;
+        position: relative;
+        display: block;
+        width: 88%;
+        height: auto;
+        padding: 6%;
+        box-shadow: inset 0px .3em .1em rgba(0,0,0,0.2);
+    }
+
+* {
+    box-sizing: border-box;
 }
 
-    figure:before {
-        content: "";
-        position: absolute;
-        display: block;
-        width: 132%;
-        height: 132%;
-        top: -16%;
-        left: -16%;
-        background-color: #f8f8f8;
-        z-index: -1;
-        box-shadow: inset 0px 10px .5em rgba(0,0,0,.25), inset .1em 0px .1em rgba(0,0,0,.1), inset -0.1em 0px .1em rgba(0,0,0,.05), 0 .3em .2em #fff;
-        background-image: -moz-radial-gradient(50% 50%, circle farthest-corner, #ffffff, #f8f8f8 100%);
-        background-image: -webkit-radial-gradient(50% 50%, circle farthest-corner, #ffffff, #f8f8f8 100%);
-        background-image: -o-radial-gradient(50% 50%, circle farthest-corner, #ffffff, #f8f8f8 100%);
-        background-image: -ms-radial-gradient(50% 50%, circle farthest-corner, #ffffff, #f8f8f8 100%);
-        background-image: radial-gradient(50% 50%, circle farthest-corner, #ffffff, #f8f8f8 100%)
-    }
-
-    figure:after {
-        content: "";
-        position: absolute;
-        display: block;
-        width: 145%;
-        height: 145%;
-        top: -22.5%;
-        left: -22.5%;
-        background: #f8f8f8;
-        z-index: -2;
-        box-shadow: 0px 1em 2em -1em rgba(0,0,0,.4), 0px 2em 2em -1em rgba(0,0,0,.3), 0px 3em 2em -1em rgba(0,0,0,.2), 0px 4em 1.5em -1em rgba(0,0,0,.15), 0px 2em 4em .5em rgba(0,0,0,.1), inset 0 .2em .1em #fff;
-    }
-
-img {
-    background: #fff;
+/* Position the image container (needed to position the left and right arrows) */
+.container {
     position: relative;
-    display: block;
-    width: 88%;
-    height: auto;
-    padding: 6%;
-    box-shadow: inset 0px .3em .1em rgba(0,0,0,.2);
 }
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Six columns side by side */
+.column {
+    float: left;
+    width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+}
+
+    .active,
+    .demo:hover {
+        opacity: 1;
+    }

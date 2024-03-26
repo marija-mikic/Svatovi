@@ -4,26 +4,30 @@
     ViewData["Title"] = "Index";
 
 }
-
-
  
- 
- <figure>
-   
-        @foreach (var item in Model)
-        {        
+<div class="card-container">
+     
+                     @foreach (var item in Model) {              
               
-          if (item.GalleryModels != null)
+                         if (item.GalleryModels != null)
                         {
-                            <img src="@item.GalleryModels[0].URL" alt="@item.GalleryModels[0].Name">
-                <p class="card-text"> @item.Coment  </p>
-                        }
-                                   
-                                                    
-                                              
-                  
-                           
-        }
-    
-</figure>
+            <div class="card">
+@*                  <div class="free-image">  
+ *@                <div class="image">
+                    <a href="image-guest/@item.Id">
+                    <img src="@item.GalleryModels[0].URL" alt="@item.GalleryModels[0].Name">
+                    </a>
+                    <div class="card-content">
+                        <p>@item.Coment  </p>
+                               
+                    </div>
+                            
+                @* </div> *@
+            </div>
+            </div>
+                      }        
+                  }
+
+</div>
+
 
