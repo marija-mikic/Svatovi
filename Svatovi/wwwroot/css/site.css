@@ -15,6 +15,7 @@ body{
     flex-wrap: wrap;
     margin-top: 100px;
     align-items: center;
+     
 }
 .card {
     width: 335px;
@@ -35,12 +36,18 @@ body{
         border-radius: 8px;
          
     }
-    .card image {
-        width: 30%;
-        border-radius: 8px;
-        overflow: hidden;
-        margin-bottom: 20px
-    }
+.card-content {
+    overflow: hidden; /* Skriva sadržaj koji prelazi granice komentara */
+    max-height: 5em; /* Ogranièava visinu komentara na maksimalno èetiri linije */
+    text-overflow: ellipsis;
+}
+ 
+.card image {
+    width: 30%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px
+}
     .card free-image{
         flex-grow:10;
     }
@@ -86,89 +93,3 @@ figure {
         box-shadow: inset 0px .3em .1em rgba(0,0,0,0.2);
     }
 
-* {
-    box-sizing: border-box;
-}
-
-/* Position the image container (needed to position the left and right arrows) */
-.container {
-    position: relative;
-}
-
-/* Hide the images by default */
-.mySlides {
-    display: none;
-}
-
-/* Add a pointer when hovering over the thumbnail images */
-.cursor {
-    cursor: pointer;
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
-    cursor: pointer;
-    position: absolute;
-    top: 40%;
-    width: auto;
-    padding: 16px;
-    margin-top: -50px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    -webkit-user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-
-/* Number text (1/3 etc) */
-.numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-}
-
-/* Container for image text */
-.caption-container {
-    text-align: center;
-    background-color: #222;
-    padding: 2px 16px;
-    color: white;
-}
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Six columns side by side */
-.column {
-    float: left;
-    width: 16.66%;
-}
-
-/* Add a transparency effect for thumnbail images */
-.demo {
-    opacity: 0.6;
-}
-
-    .active,
-    .demo:hover {
-        opacity: 1;
-    }

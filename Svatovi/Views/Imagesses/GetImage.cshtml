@@ -2,87 +2,35 @@
     ViewData["Title"] = "Image detail ";
 }
 @model ImagessModel
-<style>
-    h1{
-        font-family:'Lucida Calligraphy';
-    }
-</style>
- 
-    
-   
-       
-           @*  @for (int i = 0; i < Model.GalleryModels.Count(); i++){
-                <img src="@Model.GalleryModels[i].URL" alt="@Model.GalleryModels[i].Name">
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider CSS</title>
+
+    <link rel="stylesheet" href="~/css/slide.css">
+</head>
+<body>
+ <div class="slider">
+    <figure> 
+         @for (int i = 0; i < Model.GalleryModels.Count(); i++)
+            {
+                  <div class="slide">                        
+                         <img src="@Model.GalleryModels[i].URL" />
+                   
+                         <div class="coment">
+                            <p>@Model.Coment</p>
+                         </div>  
+                  </div>                    
+                
             }
-    <h1>@Model.Coment</h1> *@
-            @* <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-
-                    @for (int i = 0; i < Model.GalleryModels.Count(); i++)
-                    {
-                        <li data-target="#carouselExampleIndicators" data-slide-to="@i" class="@(i==0 ? "active" : "") "></li>
-                    }
-                </ol>
-                <div class="carousel-inner">
-                    @for (int i = 0; i < Model.GalleryModels.Count(); i++)
-                    {
-                        <div class="@(i==0 ? "carousel-item active" : "carousel-item") ">
-                            <img class="d-block w-100" src="@Model.GalleryModels[i].URL" alt="@Model.GalleryModels[i].Name">
-                        </div>
-                    }
-
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div> *@
+     </figure>
        
-         </div>
+ </div>
 
-<<div class="container">
-    
-                <!-- Full-width images with number text -->
-    <div class="mySlides">
-        @for (int i = 0; i < Model.GalleryModels.Count(); i++)       {
-             
-            <img src="@Model.GalleryModels[i].URL" style="width:100%">
-       
-    
-
-        
-
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-    <!-- Image text -->
-    <div class="caption-container">
-        <p id="caption"></p>
-    </div>
-
-    <!-- Thumbnail images -->
-    <div class="row">
-        <div class="column">
-            <img class="demo cursor" src="@Model.GalleryModels[i].Name" style="width:100%" onclick="currentSlide(1)"  >
-        </div>
-        
-    </div>
-        }
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+</body>
+   
+ 
