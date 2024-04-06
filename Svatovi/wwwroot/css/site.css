@@ -1,15 +1,16 @@
-*{
-    margin:0px;
-    padding:0px;
-    box-sizing:border-box;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    color: black;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 body{
-    background-image:url(../image/frame/POZADINA.jpg);
+    background-image:url(../image/frame/pexels-jess-bailey-designs-2736613.jpg);
+
 }
 .card-container {
-    background-image: url(/image/frame/POZADINA.jpg);
+    /*background-image: url(/image/frame/POZADINA.jpg);*/
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
