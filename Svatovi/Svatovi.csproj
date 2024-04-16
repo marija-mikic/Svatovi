@@ -23,6 +23,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\image\frame\" />
     <Folder Include="wwwroot\image\gallery\" />
+    <Folder Include="wwwroot\image\timeline\" />
   </ItemGroup>
 
 </Project>
