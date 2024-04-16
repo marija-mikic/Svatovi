@@ -57,9 +57,10 @@ main {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: oklch(50% 0.5 30); /*kružić*/
-    border: 6px solid oklch(50% 0.3 30);
-    content: "";
+    /*background: oklch(50% 0.5 30);*/ /*kružić*/
+    background:#000;
+/*    border: 6px solid oklch(50% 0.3 30);
+*/    content: "";
     translate: 50% 0;
     transform-origin: center;
     animation: popIn linear both;
