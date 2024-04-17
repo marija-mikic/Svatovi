@@ -1,5 +1,5 @@
 ﻿
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu:wght@500&display=swap");
+/*@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu:wght@500&display=swap");
 
 @property --clip-vertical {
     syntax: "<percentage>";
@@ -33,9 +33,9 @@ main {
     left: 50%;
     width: 0;
     height: 100%;
-    margin-left: -3px;
+    margin-left: -3px;*/
     /*border-right: 6px dashed oklch(70% 0.3 10);*/
-    content: "";
+    /*content: "";
 }
 
 }
@@ -56,11 +56,11 @@ main {
     right: 0;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: 50%;*/
     /*background: oklch(50% 0.5 30);*/ /*kružić*/
-    background:#000;
-/*    border: 6px solid oklch(50% 0.3 30);
-*/    content: "";
+/*    background:#000;
+*//*    border: 6px solid oklch(50% 0.3 30);
+*/    /*content: "";
     translate: 50% 0;
     transform-origin: center;
     animation: popIn linear both;
@@ -75,9 +75,9 @@ main {
     width: 80%;
     height: calc(15vh - 20px);
     border-width: 3px 0 0 3px;
-    border-style: dashed;
+    border-style: dashed;*/
     /*   border-color: oklch(20% 0.5 313);
-*/ clip-path: inset(0 0 var(--clip-vertical) var(--clip-horizontal));     
+*/ /*clip-path: inset(0 0 var(--clip-vertical) var(--clip-horizontal));     
     transform-origin: center;
     animation: showLine linear both;
     animation-timeline: view(block);
@@ -111,10 +111,10 @@ main {
     animation: slideIn linear both;
     animation-timeline: view(block);
     animation-range: cover 0% contain 12%;
-}
+}*/
 
 /* keyframes */
-@keyframes popIn {
+/*@keyframes popIn {
     0% {
         scale: 0;
     }
@@ -157,34 +157,36 @@ main {
         opacity: 1;
         translate: 0 3%;
     }
-}
+}*/
 
 /* Default styles */
 
-*,
-*::before,
-*::after {
+/** {
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
-}
+    color: black;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}*/
 
-body {
+/*body {
     font-family: "Open Sans", sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     font-size: 1rem;
-    line-height: 1;
+    line-height: 1;*/
 /*    background-image: radial-gradient( 150vw circle at var(--intro-radial) var(--intro-radial) in oklab, oklch(80% 0.23 68) 0%, oklch(35% 0.5 313) 100% ), url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="28" height="49" viewBox="0 0 28 49"%3E%3Cg fill-rule="evenodd"%3E%3Cg id="hexagons" fill="%23444" fill-opacity="0.4" fill-rule="nonzero"%3E%3Cpath d="M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
 */    /*background-size: 100%, 500px;*/
-    background-attachment: fixed;
-    background-color: #000;
-    background-blend-mode: difference;
+    /*background-attachment: fixed;*/
+/*    background-color: #000;
+*/    /*background-blend-mode:luminosity;
     animation: moveGradient linear both;
     animation-timeline: view(block);
-    animation-range: contain 0% cover 100%;
-}
+    animation-range: contain 10% cover 100%;
+}*/
 
-h2 {
+/*h2 {
     font-family: "Ubuntu", sans-serif;
     font-weight: 500;
     margin: 0;
@@ -200,13 +202,13 @@ p {
 }
 
 .text {
-    background: #eddada;
+    background: #fff;
     backdrop-filter: blur(8px);
     color: #fff;
-    padding: 1.1rem;
+    padding: 1.1rem;*/
     /*    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 */ /*border: 10px solid oklch(38% 0.5 313);*/
-    border-radius: 0.6rem;
+    /*border-radius: 0.6rem;
     box-shadow: 4px 4px 4px 4px #1c2b37;
 }
 
@@ -215,23 +217,23 @@ p {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-inline: 30px;
-    height: 5vh;
+    padding-inline: 20px;
+    height: 15vh;
     color: white;
 
 }
 
 img {
     width: 350px;
-    margin-block-start: 1.05rem;
+    margin-block-start: 1.05rem;*/
     /*border: 3px solid #a03d3d;
     background: white;*/
-    box-shadow: inset 5px .3em .1em rgba(0,0,0,.2);
+    /*box-shadow: inset 5px .3em .1em rgba(0,0,0,.2);
     border-radius: 10px;
-}
+}*/
 
 /* Some mobile improvements I did after the demo was finished :) I know this could be done a bit more optimised if i'd done it right away */
-@media screen and (width <= 600px) {
+/*@media screen and (width <= 600px) {
     main::before {
         left: 30px;
         margin-left: 0;
@@ -265,4 +267,117 @@ img {
 }
 
 }
+}*/
+.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-inline: 20px;
+    height: 15vh;
+    color: white;
 }
+:root {
+    --bgcolor: rgb(230, 230, 230);
+    --bodybgcolor: rgb(200, 200, 200);
+    --solidobject: -2px -2px 4px rgb(255, 255, 255), 2px 2px 4px rgba(0, 0, 0, 0.15);
+    --standardtrans: all 15s ease;
+/*    --fasttrans: all 0.45s ease;
+*/    /*--superfasttrans: all 0.45s ease;*/
+}
+
+ 
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.imgwrapper,
+.imgwrapper * {
+    transition: var(--standardtrans);
+    outline: none !important;
+}
+
+.stack {
+    width: 500px;
+    margin: 50px auto 0 auto;
+    position: relative;
+    height: 250px;
+}
+
+.imagewrap {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 460px;
+    min-height: 308px;
+    padding: 3px;
+    border-radius: 1.2em;
+    background: var(--bgcolor);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.stack .imagewrap {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: right top;
+    transition: var(--fasttrans);
+}
+
+    .stack .imagewrap.selected {
+        right: 89% !important;
+        top: -20px !important;
+        transform: rotateZ(5deg) !important;
+    }
+
+    .stack .imagewrap:not(:nth-child(1)):hover {
+        right: 30px;
+        top: 20px;
+        cursor: pointer;
+    }
+
+    .stack .imagewrap:nth-child(1) {
+        z-index: 5;
+        transform: rotateZ(1deg) translate(0, 0);
+    }
+
+    .stack .imagewrap:nth-child(2) {
+        z-index: 4;
+        transform: rotateZ(-4deg) translate(-10px, 0);
+    }
+
+    .stack .imagewrap:nth-child(3) {
+        z-index: 3;
+        transform: rotateZ(-6deg) translate(-5px, 20px);
+    }
+
+    .stack .imagewrap:nth-child(4) {
+        z-index: 2;
+        transform: rotateZ(-9deg) translate(-3px, 32px);
+    }
+
+    .stack .imagewrap:nth-child(5) {
+        z-index: 1;
+        transform: rotateZ(-14deg) translate(-3px, 24px);
+    }
+
+.imagewrap img {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    min-height: 308px;
+    opacity: 1;
+    padding: 40px 25px;
+    border-radius: 1em;
+    border-top-left-radius: 0;
+    box-shadow: -5px -5px 20px rgb(255, 255, 255), 5px 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+    .imagewrap img.confirmed {
+        border-top-left-radius: 1em;
+        box-shadow: var(--solidobject);
+    }

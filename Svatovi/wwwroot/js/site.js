@@ -1,17 +1,34 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-var slideIndex = 0;
-
-function showSlides() {
-    var i;
-    var slides = document.getElementsByClassName("slide-div");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1 }
-    slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 2000); // Change image every 2 seconds
+﻿var autorotate = true;
+function rotate(el) {
+    $(".stack .imagewrap.selected").removeClass("selected");
+    el.addClass("selected");
+    setTimeout(function () {
+        $(".stack").prepend($(".stack .imagewrap.selected"));
+        setTimeout(function () {
+            $(".stack .imagewrap.selected").removeClass("selected");
+        }, 200);
+    }, 250);
 }
+function loadactions() {
+    $("body")
+        .off("click", ".stack .imagewrap:not(:first-child)")
+        .on("click", ".stack .imagewrap:not(:first-child)", function () {
+            $(".stack .imagewrap.selected").removeClass("selected");
+            $(this).addClass("selected");
+            setTimeout(function () {
+                $(".stack").prepend($(".stack .imagewrap.selected"));
+                setTimeout(function () {
+                    $(".stack .imagewrap.selected").removeClass("selected");
+                }, 200);
+            }, 250);
+        });
+}
+
+$(function () {
+    loadactions();
+    if (autorotate == true) {
+        setInterval(function () {
+            rotate($(".stack .imagewrap:last-child"));
+        }, 1500);
+    }
+});

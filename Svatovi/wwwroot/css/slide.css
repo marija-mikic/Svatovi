@@ -16,19 +16,29 @@
     gap: 20px
 }
 
-    .img-card-1 {
-        width: 250px;         
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 4px 4px 4px 4px #1c2b37;
-} 
-    .img-card-1 img {
-        width: 100%;
-        height: auto;
-        padding: 6%;
-        box-shadow: inset 5px .3em .1em rgba(0,0,0,.2);
-        border-radius: 10px;
+.img-card-1 {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 460px;
+    min-height: 308px;
+    padding: 3px;
+    border-radius: 1.2em;
+    background: var(--bgcolor);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 }
+    .img-card-1 img {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        min-height: 308px;
+        opacity: 1;
+        padding: 40px 25px;
+         border-radius: 1em;
+        border-top-left-radius: 0;
+        box-shadow: -5px -5px 20px rgb(255, 255, 255), 5px 5px 20px rgba(0, 0, 0, 0.15);
+    }
 /*.card-content-img {
             overflow: hidden;   
             max-height: 20em;  
