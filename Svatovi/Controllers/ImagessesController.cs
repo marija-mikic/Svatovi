@@ -77,7 +77,7 @@ namespace Svatovi.Controllers
                 int id = await _imageRepository.AddNewImage(imagessModel);
                 if (id > 0)
                 {
-                    return RedirectToAction(nameof(GetAllImage), new { isSuccess = true, bookId = id });
+                    return RedirectToAction(nameof(GetAllImage), new { isSuccess = true, imageId = id });
                 }
 
 

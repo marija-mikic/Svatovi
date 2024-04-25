@@ -1,0 +1,16 @@
+﻿.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.h2 {
+    
+     
+    align-items: center;
+}

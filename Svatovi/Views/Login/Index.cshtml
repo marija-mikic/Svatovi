@@ -1,13 +1,19 @@
 ﻿@model  Svatovi.Areas.Identity.Data.SvatoviUser  
-@* @using Svatovi.Areas.Identity.Data *@
- 
+@using Svatovi.Areas.Identity.Data 
 
-
- 
- 
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Prijava</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider CSS</title>
+
+    <link rel="stylesheet" href="~/css/login.css">
 </head>
+ 
+ 
+    <title>Prijava</title>
+ 
 <body>
 
     <h2>Dobro došli dragi gosti</h2>
@@ -18,14 +24,15 @@
     }
 
     <form method="post" action="/Login">
-        <div>
+        <div class="login-container">
             <label for="name">Korisničko ime:</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" required> 
+            <div class="button">
+                <button type="submit">Prijavi se</button>
+            </div>
         </div>
+         
         
-        <div>
-            <button type="submit">Prijavi se</button>
-        </div>
     </form>
 
 </body>

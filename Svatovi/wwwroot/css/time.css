@@ -282,7 +282,7 @@ img {
     --bodybgcolor: rgb(200, 200, 200);
     --solidobject: -2px -2px 4px rgb(255, 255, 255), 2px 2px 4px rgba(0, 0, 0, 0.15);
     --standardtrans: all 15s ease;
-/*    --fasttrans: all 0.45s ease;
+    --fasttrans: all 0.45s ease;
 */    /*--superfasttrans: all 0.45s ease;*/
 }
 
@@ -301,7 +301,8 @@ body {
 }
 
 .stack {
-    width: 500px;
+    /*width: 500px;*/
+    width:auto;
     margin: 50px auto 0 auto;
     position: relative;
     height: 250px;

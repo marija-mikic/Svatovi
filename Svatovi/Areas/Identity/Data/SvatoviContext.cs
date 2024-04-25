@@ -24,4 +24,4 @@ public class SvatoviContext : DbContext
     public DbSet<ImageGallery> Gallerys { get; set; }
 
 
- }
+}
