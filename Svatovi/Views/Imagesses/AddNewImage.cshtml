@@ -3,37 +3,51 @@
 @{
     ViewData["Title"] = "Create";
 }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knjiga gostiju - Svadba</title>
+    <link rel="stylesheet" href="~/css/image.css">
+</head>
+
+<header>
+    <h1>Dobrodošli!</h1>
+    <p>Podijelite svoje čestitke i slike.</p>
+</header>
+
+<body>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post" enctype="multipart/form-data" asp-action="AddNewImage" asp-controller="Imagesses">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="comment">
+                    @* <label asp-for="Coment" class="control-label"></label> *@
+                    <input asp-for="Coment" placeholder="Vaša čestitka" class="form-control" />
+                    <span asp-validation-for="Coment" class="text-danger"></span>
+                </div>
+                <div class="comment">
+                  
+                        <label class="col-form-label">Odaberi sliku</label>
+                        <input asp-for="Imagefile" class="form-control" />
+                        <span asp-validation-for="Imagefile" class="text-danger"></span>
+               
+                </div>
+                
+                <div class="form-group">                    
+                    <button type="submit">Pošalji čestitku</button>
+                </div>
+               
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 
  
-<h4>Imagess</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post" enctype="multipart/form-data" asp-action="AddNewImage" asp-controller="Imagesses">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-             
-            <div class="form-group">
-                <label asp-for="Coment" class="control-label"></label>
-                <input asp-for="Coment" class="form-control" />
-                <span asp-validation-for="Coment" class="text-danger"></span>
-            </div>
-            <div class="row mt-2">
-                <div class="col-12">
-                    <label class="col-form-label">Select File</label>
-                    <input asp-for="Imagefile" class="form-control" />
-                    <span asp-validation-for="Imagefile" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{

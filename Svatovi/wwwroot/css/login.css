@@ -2,13 +2,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    height: 60vh;
 }
-.button {
+.login-container button {
     display: flex;
     justify-content: center;
     align-items: center;
-     
+    padding: 3px 50px;
+    background-color: #9757ad;
+    color: #fff;
+    border: none;
+    cursor: pointer;
 }
 .describe {
     display: flex;
@@ -16,4 +20,8 @@
     align-items: center;
     margin-top: 20px;
     font-family: Arial, sans-serif;
+    font-size: 1em;
+    text-align: center;
 }
+    
+ 
