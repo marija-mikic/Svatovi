@@ -15,14 +15,16 @@
     <title>Prijava</title>
  
 <body>
-
-    <h2>Dobro došli dragi gosti</h2>
+      
 
     @if (ViewBag.ErrorMessage != null)
     {
         <div style="color: red;">@ViewBag.ErrorMessage</div>
     }
-
+    <div class="describe">
+    <h2>Dobro došli dragi gosti</h2>
+    </div>
+    
     <form method="post" action="/Login">
         <div class="login-container">
             <label for="name">Korisničko ime:</label>
