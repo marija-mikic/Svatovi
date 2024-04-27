@@ -25,6 +25,7 @@ header {
     border: double;
     border-color: rgba(86, 182, 145, 0.8);
     text-align: center;
+    word-break: break-all;
 }
 
 .file input {
@@ -33,7 +34,10 @@ header {
     width: 400px;
     border: double;
     border-color: rgba(86, 182, 145, 0.8);
-   
+}
+.file label {
+    font-size: 2em;
+    color: rgba(25, 79, 58, 0.8);
 }
 /*form button {
     padding: 5px 20px;
@@ -97,7 +101,7 @@ header {
     transition: opacity 0.5s linear;
 }
 
- .button:hover,
+ /*.button:hover,
 .button:focus {
     color: var(--clr-bg);
     text-shadow: none;
@@ -113,6 +117,6 @@ header {
     .button:hover::after,
     .button:focus::after {
         opacity: 1;
-    } 
+    } */
 
  

@@ -2,12 +2,12 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    color: black;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
+    color: rgba(25, 79, 58, 0.8);    
+/*    text-shadow: rgba(25, 79, 58, 0.8);
+*/}
 body {
-    background-image: url('/image/frame/AdobeStock_309925647_Preview.jpeg');
-}
+/*    background-image: url('/image/frame/AdobeStock_309925647_Preview.jpeg');
+*/}
 .card-container {
 /*    background-image: url(/image/frame/pexels-jess-bailey-designs-2736613.jpg);
 */    display: flex;
