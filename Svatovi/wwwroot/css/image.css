@@ -13,17 +13,27 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 100px;
     padding: 10px 20px;
      
 }
-     
 .comment input {
     margin-bottom: 15px;
     padding: 15px;
-    width: 400px; 
-    border:double;
-    border-color:#c763bc;
+    height: 100px;
+    width: 400px;
+    border: double;
+    border-color: rgba(86, 182, 145, 0.8);
+    text-align: center;
+}
+
+.file input {
+    margin-bottom: 15px;
+    padding: 15px;
+    width: 400px;
+    border: double;
+    border-color: rgba(86, 182, 145, 0.8);
+   
 }
 /*form button {
     padding: 5px 20px;
@@ -34,7 +44,7 @@ header {
     
 }*/
 :root {
-    --clr-neon: rgba(235, 97, 143, 1);
+    --clr-neon: rgba(86, 182, 145, 0.8);
     --clr-bg: rgba(1, 1, 1, 1);
     --clr-white: rgba(255, 255, 255, 1);
 }
@@ -53,8 +63,8 @@ header {
     border: var(--clr-neon) 4px solid;
     padding: 0.25em 1em;
     border-radius: 0.25em;
-    text-shadow: 0 0 0.125em rgba(255, 255, 255, 0.55), 0 0 0.5em currentColor;
-    box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+/*    text-shadow: 0 0 0.125em rgba(86, 182, 145, 0.8), 0 0 0.5em currentColor;
+*/    box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
     position: relative;
 }
  
