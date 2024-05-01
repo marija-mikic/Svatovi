@@ -43,7 +43,7 @@ namespace Svatovi.Controllers
 
             return View(data);
         }
-        //[Route("adingphoto")]
+        [Route("adingphoto")]
         public async Task<ViewResult>AddNewImage(bool isSuccess = false, int ImageId = 0)
         {
             var model = new ImagessModel();
@@ -54,7 +54,8 @@ namespace Svatovi.Controllers
 
 
         [HttpPost]
-            public async Task<IActionResult> AddNewImage(ImagessModel imagessModel)
+        
+        public async Task<IActionResult> AddNewImage(ImagessModel imagessModel)
         {
 
             if (imagessModel.Imagefile != null)

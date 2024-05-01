@@ -3,14 +3,16 @@
     padding: 0px;
     box-sizing: border-box;
     color: rgba(25, 79, 58, 0.8);
-    /*    text-shadow: rgba(25, 79, 58, 0.8);
-*/
+
 }
 
 body {
     background-image: url('/image/frame/AdobeStock_309925647_Preview.jpeg');
+    background-size: cover;
+     background-position: center;
+    position: relative;
     /* From https://css.glass */
-     border-radius: 16px;
+    border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -18,8 +20,7 @@ body {
 }
 
 .card-container {
-    /*    background-image: url(/image/frame/pexels-jess-bailey-designs-2736613.jpg);
-*/ display: flex;
+    display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 100px;
@@ -27,13 +28,6 @@ body {
 }
 
 .card {
-    /*width: 335px;*/
-    /*    background-image: url(/image/frame/240_F_430707962_fcrgGGyNClzu4OXKZIc1A3bMp3107ygd.jpg);
-*/ /*background-color:aqua;*/
-    /*background-image: url('/image/frame/AdobeStock_309925647_Preview.jpeg');
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 4px 4px 4px 4px #1c2b37;*/
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -46,15 +40,6 @@ body {
 }
 
     .card img {
-        /*background-image: url(/image/frame/POZADINA.jpg);*/
-        /*position: relative;*/
-        /*display: block;*/
-        /*width: 100%;
-        height: auto;
-        padding: 6%;
-        box-shadow: inset 0px .3em .1em rgba(0,0,0,.2);
-        border-radius: 8px;
-         */
         position: relative;
         margin-left: auto;
         margin-right: auto;
@@ -68,50 +53,11 @@ body {
     }
 
 .card-content {
+      max-height: 5em;
     overflow: hidden;
-    max-height: 5em;
-    text-overflow: ellipsis;
-}
-
-/*.card image {
-    width: 30%;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 20px
-}*/
-
-/*.body {
-    margin-bottom: 60px;
-}*/
-
-/*body {
-    font-family: 'Oswald', sans-serif;
-    */ /*background-image: url("../image/frame/240_F_430707962_fcrgGGyNClzu4OXKZIc1A3bMp3107ygd.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-    section*/
-
-/*{
-    width: 90%;
-    max-width: 20px;
-    margin: 0 auto;
-    .row
-
-{
-    align-items: center;
-    height: 100vh;
-}
-figure {
-    position: absolute;
-    display: block;
-    width: 400px;
-    margin: 100px auto;
-    top: 25%;
-    left: 50%;
-    margin: 0 0 0 -200px;
-
-}*/
-
+    text-overflow:ellipsis;
+ 
+} 
 .img {
     background: #fff;
     position: relative;
