@@ -2,21 +2,30 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    color: rgba(25, 79, 58, 0.8);    
-/*    text-shadow: rgba(25, 79, 58, 0.8);
-*/}
+    color: rgba(25, 79, 58, 0.8);
+    /*    text-shadow: rgba(25, 79, 58, 0.8);
+*/
+}
+
 body {
-/*    background-image: url('/image/frame/AdobeStock_309925647_Preview.jpeg');
-*/}
+    background-image: url('/image/frame/AdobeStock_309925647_Preview.jpeg');
+    /* From https://css.glass */
+     border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .card-container {
-/*    background-image: url(/image/frame/pexels-jess-bailey-designs-2736613.jpg);
-*/    display: flex;
+    /*    background-image: url(/image/frame/pexels-jess-bailey-designs-2736613.jpg);
+*/ display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 100px;
     align-items: center;
-     
 }
+
 .card {
     /*width: 335px;*/
     /*    background-image: url(/image/frame/240_F_430707962_fcrgGGyNClzu4OXKZIc1A3bMp3107ygd.jpg);
@@ -35,6 +44,7 @@ body {
     background: var(--bgcolor);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 }
+
     .card img {
         /*background-image: url(/image/frame/POZADINA.jpg);*/
         /*position: relative;*/
@@ -56,13 +66,13 @@ body {
         border-top-left-radius: 0;
         box-shadow: -5px -5px 20px rgb(255, 255, 255), 5px 5px 20px rgba(0, 0, 0, 0.15);
     }
+
 .card-content {
     overflow: hidden;
     max-height: 5em;
     text-overflow: ellipsis;
-     
-} 
- 
+}
+
 /*.card image {
     width: 30%;
     border-radius: 8px;
@@ -101,14 +111,13 @@ figure {
     margin: 0 0 0 -200px;
 
 }*/
- 
-.img {
-        background: #fff;
-        position: relative;
-        display: block;
-        width: 88%;
-        height: auto;
-        padding: 6%;
-        box-shadow: inset 0px .3em .1em rgba(0,0,0,0.2);
-    }
 
+.img {
+    background: #fff;
+    position: relative;
+    display: block;
+    width: 88%;
+    height: auto;
+    padding: 6%;
+    box-shadow: inset 0px .3em .1em rgba(0,0,0,0.2);
+}
