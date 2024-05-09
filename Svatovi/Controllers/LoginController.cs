@@ -23,7 +23,7 @@ namespace Svatovi.Controllers
 
         // GET: Login
         //[Authorize(Roles ="Admin")]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             ViewBag.ErrorMessage = null;
             return View();
@@ -31,9 +31,9 @@ namespace Svatovi.Controllers
         // POST: /Login
         [HttpPost]
         //[Authorize(Roles = "Admin")]
-        public async Task< IActionResult> Index(string name /*string role*/)
+        public IActionResult Index(string name /*string role*/)
         {
-            
+
             // Ovdje biste provjeravali korisničke podatke koristeći Entity Framework Core
             var svatoviUser = _context.Users.FirstOrDefault(u => u.name == name /*&& u.role == role*/);
 

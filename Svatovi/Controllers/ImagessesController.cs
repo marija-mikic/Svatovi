@@ -18,33 +18,33 @@ namespace Svatovi.Controllers
 {
     public class ImagessesController : Controller
     {
-        private readonly IImageRepository _imageRepository=null;
+        private readonly IImageRepository _imageRepository = null;
 
         public readonly IWebHostEnvironment _webHostEnviroment;
 
         public ImagessesController(IImageRepository imageRepository, IWebHostEnvironment webHostEnvironment)
         {
-            _imageRepository= imageRepository;
+            _imageRepository = imageRepository;
             _webHostEnviroment = webHostEnvironment;
 
-                }
+        }
         [Route("all-guests")]
-        public async Task<ViewResult>GetAllImage()
+        public async Task<ViewResult> GetAllImage()
         {
-            var data= await _imageRepository.GetAllImages();
-            
+            var data = await _imageRepository.GetAllImages();
+
 
             return View(data);
         }
         [Route("image-guest/{id:int:min(1)}")]
-        public async Task<ViewResult>GetImage(int id)
+        public async Task<ViewResult> GetImage(int id)
         {
             var data = await _imageRepository.GetImageById(id);
 
             return View(data);
         }
         [Route("adingphoto")]
-        public async Task<ViewResult>AddNewImage(bool isSuccess = false, int ImageId = 0)
+        public async Task<ViewResult> AddNewImage(bool isSuccess = false, int ImageId = 0)
         {
             var model = new ImagessModel();
             ViewBag.IsSuccess = isSuccess;
@@ -54,7 +54,7 @@ namespace Svatovi.Controllers
 
 
         [HttpPost]
-        
+
         public async Task<IActionResult> AddNewImage(ImagessModel imagessModel)
         {
 
@@ -72,7 +72,7 @@ namespace Svatovi.Controllers
                         URL = await UploadImage(folder, file)
                     };
                     imagessModel.GalleryModels.Add(gallery);
-                    
+
 
                 }
                 int id = await _imageRepository.AddNewImage(imagessModel);
@@ -109,5 +109,5 @@ namespace Svatovi.Controllers
 
     }
 
-   
+
 }

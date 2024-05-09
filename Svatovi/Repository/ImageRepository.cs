@@ -55,32 +55,34 @@ namespace Svatovi.Repository
                 Id = i.Id,
                 Coment = i.Coment,
                 GalleryModels = i.imageGalleries.Select(g => new GalleryModel()
-                { Name = g.Name,
-                  URL = g.URL, }).ToList()
+                {
+                    Name = g.Name,
+                    URL = g.URL,
+                }).ToList()
 
             }).ToListAsync();
 
-        
 
-    }
-    
+
+        }
+
 
         public async Task<ImagessModel?> GetImageById(int id)
         {
             return await _context.Datas.Where(x => x.Id == id)
                 .Select(image => new ImagessModel()
-            {
-                Id = image.Id,
-                //Image = image.Images,
-                Coment = image.Coment,
-
-                GalleryModels = image.imageGalleries.Select(x => new GalleryModel()
                 {
-                    Id =x.Id,
-                    Name =x.Name,
-                    URL =x.URL
-                }).ToList()
-            }).FirstOrDefaultAsync();
+                    Id = image.Id,
+                    //Image = image.Images,
+                    Coment = image.Coment,
+
+                    GalleryModels = image.imageGalleries.Select(x => new GalleryModel()
+                    {
+                        Id = x.Id,
+                        Name = x.Name,
+                        URL = x.URL
+                    }).ToList()
+                }).FirstOrDefaultAsync();
         }
     }
 }
