@@ -1,35 +1,23 @@
 {
   "dependencies": {
-    "mssql1": {
-      "type": "mssql.local",
-      "connectionId": "ConnectionStrings:SvatoviContextConnection"
-    },
-    "mssql2": {
-      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/germanywestcentral/connectors/worldwedingblob_68DC3F7A9B",
-      "secretStore": null,
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/svatovi/databases/sqlserver-svatovi-001",
-      "type": "mssql.azure",
-      "connectionId": "worldweding:blob",
-      "dynamicId": null
-    },
-    "storage1": {
-      "ignored": "true",
-      "type": "storage",
-      "connectionId": "worldweding",
-      "dynamicId": null
-    },
     "secrets1": {
-      "secretStore": null,
-      "resourceId": null,
       "type": "secrets.user",
-      "connectionId": null
+      "dynamicId": null
     },
-    "mssql3": {
+    "mssql1": {
       "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/germanywestcentral/connectors/ConnectionStringsDefaultConnection_033807C2B2",
-      "secretStore": "LocalSecretsFile",
+      "secretStore": null,
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/svatovi/databases/sqlserver-svatovi-001",
       "type": "mssql.azure",
       "connectionId": "ConnectionStrings:DefaultConnection",
+      "dynamicId": null
+    },
+    "storage1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/germanywestcentral/connectors/ConnectionStringssqlserversvatovi001_0D728741D1",
+      "secretStore": null,
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/svatovistorage",
+      "type": "storage.azure",
+      "connectionId": "ConnectionStrings:sqlserver-svatovi-001",
       "dynamicId": null
     }
   }

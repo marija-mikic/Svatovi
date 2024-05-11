@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Svatovi.Areas.Identity.Data;
-using Svatovi.Migrations;
 using Svatovi.Models;
 using Svatovi.Repository;
 using static System.Reflection.Metadata.BlobBuilder;

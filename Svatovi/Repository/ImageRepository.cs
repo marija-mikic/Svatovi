@@ -10,7 +10,7 @@ namespace Svatovi.Repository
 {
     public class ImageRepository : IImageRepository
     {
-        private readonly SvatoviContext _context = null;
+        private readonly SvatoviContext? _context = null;
 
 
         public ImageRepository(SvatoviContext context)

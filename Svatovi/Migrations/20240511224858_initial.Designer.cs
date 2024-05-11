@@ -11,8 +11,8 @@ using Svatovi.Areas.Identity.Data;
 namespace Svatovi.Migrations
 {
     [DbContext(typeof(SvatoviContext))]
-    [Migration("20240509162828_second")]
-    partial class second
+    [Migration("20240511224858_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

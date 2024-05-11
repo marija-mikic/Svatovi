@@ -3,9 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using Svatovi.Areas.Identity.Data;
 using Svatovi.Models;
 using Svatovi.Repository;
+using Microsoft.Extensions.Azure;
+using Azure.Identity;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+//var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
+//builder.Configuration.AddAzureKeyVault(keyVaultEndpoint, new DefaultAzureCredential());
 
 var connectionString = builder.Configuration["ConnectionStrings:DefaultConnection"] /*?? throw new InvalidOperationException("'ConnectionStrings'  not found.")*/;
 
@@ -18,6 +23,11 @@ builder.Services.AddScoped<IImageRepository, ImageRepository>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+//builder.Services.AddAzureClients(clientBuilder =>
+//{
+//    clientBuilder.AddBlobServiceClient(builder.Configuration["ConnectionStrings:sqlserver-svatovi-001:blob"]!, preferMsi: true);
+//    clientBuilder.AddQueueServiceClient(builder.Configuration["ConnectionStrings:sqlserver-svatovi-001:queue"]!, preferMsi: true);
+//});
 
 var app = builder.Build();
 
