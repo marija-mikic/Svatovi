@@ -4,12 +4,19 @@
     align-items: center;
     height: 40vh;
   
-} 
+}
+
 .login-container input {
-        border:hidden;
-         
+        padding: 10px; /* Dodaje malo prostora oko teksta */
+        border: 2px solid #ccc; /* Dodaje granicu oko input polja */
+        border-radius: 5px; /* Zaobljava ivice input polja */
+        font-size: 16px; /* Veličina fonta */
+        background-color: #f0f0f0; /* Pozadinska boja */
+        color: rgb(255, 0, 0); /* Boja teksta */
+        width: 100%; /* Širina input polja */
+        box-sizing: border-box; /* Uključuje padding i granice u širinu */
     }
-    .login-container label {
+.login-container label {
         font-size: 2em;
         color: rgba(86, 182, 145, 0.8);
     }

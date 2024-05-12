@@ -28,6 +28,7 @@ namespace Svatovi.Controllers
 
         }
         [Route("all-guests")]
+       
         public async Task<ViewResult> GetAllImage()
         {
             var data = await _imageRepository.GetAllImages();

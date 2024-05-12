@@ -7,9 +7,9 @@
 }
 
 body {
-    background-image: url('/image/frame/AdobeStock_309925647_Preview.jpeg');
-    background-size: cover;
-     background-position: center;
+    background-image: url('/image/frame/1.jpg');
+    background-size:auto;
+    background-position: center;
     position: relative;
     /* From https://css.glass */
     border-radius: 16px;

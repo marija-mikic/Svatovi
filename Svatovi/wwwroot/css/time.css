@@ -1,5 +1,4 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu:wght@500&display=swap");
-
 @property --clip-vertical {
     syntax: "<percentage>";
     initial-value: 95%;
@@ -165,8 +164,10 @@ main {
     box-sizing: border-box;
 }
 
+* {
+    background-color: #8d7a7a;
+}
 body {
-    font-family: "Open Sans", sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -204,9 +205,9 @@ header {
 }
 
 img {
-    width: 350px;
-    margin-block-start: 1.05rem;
-     
+    width: 250px;
+/*    margin-block-start: 1.05rem;
+*/     
     
 
 }

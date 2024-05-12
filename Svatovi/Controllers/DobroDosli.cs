@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using Svatovi.Areas.Identity.Data;
 
 namespace Svatovi.Controllers
 {
+    //[Authorize(Roles = "Admin")]
     public class DobroDosli : Controller
     {
         private readonly SvatoviContext _context;
@@ -19,7 +21,7 @@ namespace Svatovi.Controllers
         }
 
         // GET: DobroDosli
-        public async Task<IActionResult> Index()
+         public async Task<IActionResult> Index()
         {
             return View(await _context.Users.ToListAsync());
         }
@@ -43,7 +45,7 @@ namespace Svatovi.Controllers
         }
 
         // GET: DobroDosli/Create
-        public IActionResult Create()
+         public IActionResult Create()
         {
             return View();
         }
@@ -65,6 +67,7 @@ namespace Svatovi.Controllers
         }
 
         // GET: SvatoviUsers/Edit/5
+      
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)

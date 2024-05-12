@@ -22,30 +22,27 @@ namespace Svatovi.Controllers
 
 
         // GET: Login
-        //[Authorize(Roles ="Admin")]
+       
+        [Route("guest/Dobro-došli")]
         public IActionResult Index()
         {
             ViewBag.ErrorMessage = null;
             return View();
         }
         // POST: /Login
-        [HttpPost]
-        //[Authorize(Roles = "Admin")]
-        public IActionResult Index(string name /*string role*/)
+        [HttpPost]   
+        public IActionResult Index(string name/*, string role*/)
         {
 
-            // Ovdje biste provjeravali korisničke podatke koristeći Entity Framework Core
-            var svatoviUser = _context.Users.FirstOrDefault(u => u.name == name /*&& u.role == role*/);
+             var svatoviUser = _context.Users.FirstOrDefault(u => u.name == name /*&& u.role == role*/);
 
             if (svatoviUser != null)
             {
-                // Ako su korisnički podaci ispravni, možete preusmjeriti korisnika na početnu stranicu
-                return RedirectToAction("Index", "Home");
+                 return RedirectToAction("Index", "adingphoto");
             }
             else
             {
-                // Ako su korisnički podaci neispravni, možete vratiti pogled sa porukom o grešci
-                ViewBag.ErrorMessage = "Pogrešno korisničko ime ili lozinka.";
+                 ViewBag.ErrorMessage = "Pogrešno korisničko ime ili lozinka.";
                 return View();
             }
         }

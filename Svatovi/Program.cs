@@ -5,6 +5,8 @@ using Svatovi.Models;
 using Svatovi.Repository;
 using Microsoft.Extensions.Azure;
 using Azure.Identity;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,6 +30,17 @@ builder.Services.AddControllersWithViews();
 //    clientBuilder.AddBlobServiceClient(builder.Configuration["ConnectionStrings:sqlserver-svatovi-001:blob"]!, preferMsi: true);
 //    clientBuilder.AddQueueServiceClient(builder.Configuration["ConnectionStrings:sqlserver-svatovi-001:queue"]!, preferMsi: true);
 //});
+//builder.Services.AddAuthentication(options =>
+//{
+//    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+//    options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+//})
+//.AddCookie(options =>
+//{
+//    options.LoginPath = "/Admin/DobroDosli";
+//    options.AccessDeniedPath = "/Account/AccessDenied";
+//});
+
 
 var app = builder.Build();
 
